@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini-App Enter Point</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <script>
+        function sendPostRequest() {
+            const url = 'http://127.0.0.1/api/v1/me';
+            const data = { key: 'value' }; // Здесь добавь нужные данные для отправки
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Вызов функции для отправки запроса при загрузке страницы
+        window.onload = sendPostRequest;
+    </script>
+</body>
+</html>
