@@ -16,9 +16,9 @@
 </head>
 <body>
 <script>
-    function sendPostRequest() {
+    function sendPostRequest(initData) {
         const url = 'https://162.248.93.100/api/v1/me';
-        const data = {initData: window.Telegram.WebApp.initData};
+        const data = {"initData": initData};
 
         fetch(url, {
             method: 'POST',
@@ -36,8 +36,10 @@
         });
     }
 
-    // Вызов функции для отправки запроса при загрузке страницы
-    window.onload = sendPostRequest;
+    let tg = window.Telegram.WebApp;
+    tg.expand();
+    tg.ready();
+    sendPostRequest(tg.initData);
 </script>
 </body>
 </html>
