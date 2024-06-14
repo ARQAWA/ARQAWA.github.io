@@ -3,32 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Mini-App Enter Point</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script
+            src="https://js.sentry-cdn.com/83875f478f5d460f82650ae5792c5585.min.js"
+            crossorigin="anonymous"
+            data-lazy="no"
+    ></script>
+
+
+    <script
+            src="https://telegram.org/js/telegram-web-app.js"
+    ></script>
 </head>
 <body>
-    <script>
-        function sendPostRequest() {
-            const url = 'https://162.248.93.100/api/v1/me';
-            const data = {initData: window.Telegram.WebApp.initData};
+<script>
+    function sendPostRequest() {
+        const url = 'https://162.248.93.100/api/v1/me';
+        const data = {initData: window.Telegram.WebApp.initData};
 
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        }
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
 
-        // Вызов функции для отправки запроса при загрузке страницы
-        window.onload = sendPostRequest;
-    </script>
+    // Вызов функции для отправки запроса при загрузке страницы
+    window.onload = sendPostRequest;
+</script>
 </body>
 </html>
