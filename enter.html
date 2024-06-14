@@ -39,6 +39,7 @@
     let tg = window.Telegram.WebApp;
     tg.expand();
     tg.ready();
+    window.document.body.innerText = 'Hello, Telegram!' + tg.initData;
     sendPostRequest(tg.initData);
 </script>
 </body>
